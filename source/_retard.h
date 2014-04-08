@@ -24,36 +24,22 @@ along with the GNU Ballistics Library. If not,
 see <http://www.gnu.org/licenses/>. 
 */
 
-#include "_angle.h"
+#ifndef _RETARD_H
+#define _RETARD_H
 
-// Specialty angular conversion functions
-double DegtoMOA(double deg)
-{
-	return deg*60;
-}
+enum __DragFunctions {G1=1,G2,G3,G4,G5,G6,G7,G8};
 
-double DegtoRad(double deg)
-{
-	return deg*M_PI/180;
-}
+// A function to calculate ballistic retardation values based on standard drag functions.
+// Source is in "_retard.c"
+double retard(int DragFunction, double DragCoefficient, double Vi);
+/* Arguments:
+		DragFunction:  G1, G2, G3, G4, G5, G6, G7, or G8.  All are enumerated above.
+		DragCoefficient:  The coefficient of drag for the projectile for the given drag function.
+		Vi:  The Velocity of the projectile.
+	
+	Return Value: 
+		The function returns the projectile drag retardation velocity, in ft/s per second.
+		
+*/
 
-double MOAtoDeg(double moa)
-{
-	return moa/60;
-}
-
-double MOAtoRad(double moa)
-{
-	return moa/60*M_PI/180;
-}
-
-double RadtoDeg(double rad)
-{
-	return rad*180/M_PI;
-}
-
-double RadtoMOA(double rad)
-{
-	return rad*60*180/M_PI;
-}
-
+#endif

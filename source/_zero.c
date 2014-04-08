@@ -1,4 +1,33 @@
-double ZeroAngle(int DragFunction, double DragCoefficient, double Vi, double SightHeight, double ZeroRange, double yIntercept){
+/*
+GNU Ballistics Library 
+Originally created by Derek Yates
+Copyright (C) 2014 Kyle Crockett
+
+
+This file is part of the GNU Ballistics Library.
+
+
+The GNU Ballistics Library is free software: you can redistribute it 
+and/or modify it under the terms of the GNU General Public License as 
+published by the Free Software Foundation, either version 2 of the 
+License, or (at your option) any later version.
+
+
+The GNU Ballistics Library is distributed in the hope that it will 
+be useful, but WITHOUT ANY WARRANTY; without even the implied warranty 
+of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+
+You should have received a copy of the GNU General Public License
+along with the GNU Ballistics Library. If not, 
+see <http://www.gnu.org/licenses/>. 
+*/
+
+#include "_zero.h"
+
+double ZeroAngle(int DragFunction, double DragCoefficient, double Vi, double SightHeight, double ZeroRange, double yIntercept)
+{
 
 	// Numerical Integration variables
 	double t=0;
@@ -26,13 +55,15 @@ double ZeroAngle(int DragFunction, double DragCoefficient, double Vi, double Sig
 	// the angle.  Once we are again below the correct angle, reduce the angular change by half again, and go
 	// back up.  This allows for a fast successive approximation of the correct elevation, usually within less
 	// than 20 iterations.
-	for (angle=0;quit==0;angle=angle+da){
+	for (angle=0;quit==0;angle=angle+da)
+	{
 		vy=Vi*sin(angle);
 		vx=Vi*cos(angle);
 		Gx=GRAVITY*sin(angle);
 		Gy=GRAVITY*cos(angle);
 
-		for (t=0,x=0,y=-SightHeight/12;x<=ZeroRange*3;t=t+dt){
+		for (t=0,x=0,y=-SightHeight/12;x<=ZeroRange*3;t=t+dt)
+		{
 			vy1=vy;
 			vx1=vx;
 			v=pow((pow(vx,2)+pow(vy,2)),0.5);
@@ -50,19 +81,23 @@ double ZeroAngle(int DragFunction, double DragCoefficient, double Vi, double Sig
 			x=x+dt*(vx+vx1)/2;
 			y=y+dt*(vy+vy1)/2;
 			// Break early to save CPU time if we won't find a solution.
-			if (vy<0 && y<yIntercept) {
+			if (vy<0 && y<yIntercept) 
+			{
 				break;
 			}
-			if (vy>3*vx) { 
+			if (vy>3*vx) 
+			{ 
 				break;
 			}
 		}
 	
-		if (y>yIntercept && da>0){
+		if (y>yIntercept && da>0)
+		{
 			da=-da/2;
 		}
 
-		if (y<yIntercept && da<0){
+		if (y<yIntercept && da<0)
+		{
 			da=-da/2;
 		}
 

@@ -1,4 +1,33 @@
-double retard(int DragFunction, double DragCoefficient, double Velocity){
+/*
+GNU Ballistics Library 
+Originally created by Derek Yates
+Copyright (C) 2014 Kyle Crockett
+
+
+This file is part of the GNU Ballistics Library.
+
+
+The GNU Ballistics Library is free software: you can redistribute it 
+and/or modify it under the terms of the GNU General Public License as 
+published by the Free Software Foundation, either version 2 of the 
+License, or (at your option) any later version.
+
+
+The GNU Ballistics Library is distributed in the hope that it will 
+be useful, but WITHOUT ANY WARRANTY; without even the implied warranty 
+of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+
+You should have received a copy of the GNU General Public License
+along with the GNU Ballistics Library. If not, 
+see <http://www.gnu.org/licenses/>. 
+*/
+
+#include "_retard.h"
+
+double retard(int DragFunction, double DragCoefficient, double Velocity)
+{
 
 //	printf("DF: %d, CD: %f, V: %f,);
 
@@ -6,7 +35,8 @@ double retard(int DragFunction, double DragCoefficient, double Velocity){
 	double val=-1;
 	double A=-1;
 	double M=-1;
-	switch(DragFunction) {
+	switch(DragFunction) 
+	{
 		case G1:
 			if (vp > 4230) { A = 1.477404177730177e-04; M = 1.9565; }
 			else if (vp> 3680) { A = 1.920339268755614e-04; M = 1.925 ; }
@@ -107,7 +137,8 @@ double retard(int DragFunction, double DragCoefficient, double Velocity){
 		
 	}
 
-	if (A!=-1 && M!=-1 && vp>0 && vp<10000){
+	if (A!=-1 && M!=-1 && vp>0 && vp<10000)
+	{
 		val=A*pow(vp,M)/DragCoefficient;
 		return val;
 	}

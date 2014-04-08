@@ -24,36 +24,16 @@ along with the GNU Ballistics Library. If not,
 see <http://www.gnu.org/licenses/>. 
 */
 
-#include "_angle.h"
+#ifndef _ANGLE_H
+#define _ANGLE_H
 
-// Specialty angular conversion functions
-double DegtoMOA(double deg)
-{
-	return deg*60;
-}
+// Angular conversion functions to make things a little easier. 
+// Source is in _angle.c
+double DegtoMOA(double deg); // Converts degrees to minutes of angle
+double DegtoRad(double deg); // Converts degrees to radians
+double MOAtoDeg(double moa); // Converts minutes of angle to degrees
+double MOAtoRad(double moa); // Converts minutes of angle to radians
+double RadtoDeg(double rad); // Converts radians to degrees
+double RadtoMOA(double rad); // Converts radiants to minutes of angle
 
-double DegtoRad(double deg)
-{
-	return deg*M_PI/180;
-}
-
-double MOAtoDeg(double moa)
-{
-	return moa/60;
-}
-
-double MOAtoRad(double moa)
-{
-	return moa/60*M_PI/180;
-}
-
-double RadtoDeg(double rad)
-{
-	return rad*180/M_PI;
-}
-
-double RadtoMOA(double rad)
-{
-	return rad*60*180/M_PI;
-}
-
+#endif

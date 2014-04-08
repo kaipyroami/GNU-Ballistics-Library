@@ -1,7 +1,35 @@
+/*
+GNU Ballistics Library 
+Originally created by Derek Yates
+Copyright (C) 2014 Kyle Crockett
+
+
+This file is part of the GNU Ballistics Library.
+
+
+The GNU Ballistics Library is free software: you can redistribute it 
+and/or modify it under the terms of the GNU General Public License as 
+published by the Free Software Foundation, either version 2 of the 
+License, or (at your option) any later version.
+
+
+The GNU Ballistics Library is distributed in the hope that it will 
+be useful, but WITHOUT ANY WARRANTY; without even the implied warranty 
+of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+
+You should have received a copy of the GNU General Public License
+along with the GNU Ballistics Library. If not, 
+see <http://www.gnu.org/licenses/>. 
+*/
+
+
 #include <stdio.h>
 #include "ballistics.h"
 
-int main(void){
+int main(void)
+{
 	int k=0;
 	double* sln;// A pointer for receiving the ballistic solution.
 	double bc=0.5; // The ballistic coefficient for the projectile.
@@ -35,7 +63,8 @@ int main(void){
 	
 	// Now print a simple chart of X / Y trajectory spaced at 10yd increments
 	int s=0;
-	for (s=0;s<=100;s++){
+	for (s=0;s<=100;s++)
+	{
 		printf("\nX: %.0f     Y: %.2f",GetRange(sln,s*10), GetPath(sln,s*10));
 	}
 		

@@ -1,5 +1,34 @@
+/*
+GNU Ballistics Library 
+Originally created by Derek Yates
+Copyright (C) 2014 Kyle Crockett
+
+
+This file is part of the GNU Ballistics Library.
+
+
+The GNU Ballistics Library is free software: you can redistribute it 
+and/or modify it under the terms of the GNU General Public License as 
+published by the Free Software Foundation, either version 2 of the 
+License, or (at your option) any later version.
+
+
+The GNU Ballistics Library is distributed in the hope that it will 
+be useful, but WITHOUT ANY WARRANTY; without even the implied warranty 
+of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+
+You should have received a copy of the GNU General Public License
+along with the GNU Ballistics Library. If not, 
+see <http://www.gnu.org/licenses/>. 
+*/
+
+#include "_solve.h"
+
 int SolveAll(int DragFunction, double DragCoefficient, double Vi, double SightHeight, \
-double ShootingAngle, double ZAngle, double WindSpeed, double WindAngle, double** Solution){
+double ShootingAngle, double ZAngle, double WindSpeed, double WindAngle, double** Solution)
+{
 
 	double* ptr;
         ptr = (double*)malloc(10*__BCOMP_MAXRANGE__*sizeof(double)+2048);
@@ -23,7 +52,8 @@ double ShootingAngle, double ZAngle, double WindSpeed, double WindAngle, double*
 	y=-SightHeight/12;
 
 	int n=0;
-	for (t=0;;t=t+dt){
+	for (t=0;;t=t+dt)
+	{
 
 		vx1=vx, vy1=vy;	
 		v=pow(pow(vx,2)+pow(vy,2),0.5);
@@ -40,7 +70,8 @@ double ShootingAngle, double ZAngle, double WindSpeed, double WindAngle, double*
 
 
 
-		if (x/3>=n){
+		if (x/3>=n)
+		{
 			ptr[10*n+0]=x/3;							// Range in yds
 			ptr[10*n+1]=y*12;							// Path in inches
 			ptr[10*n+2]=-RadtoMOA(atan(y/x));			// Correction in MOA
