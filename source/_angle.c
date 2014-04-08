@@ -24,7 +24,7 @@ along with the GNU Ballistics Library. If not,
 see <http://www.gnu.org/licenses/>. 
 */
 
-#include "_angle.h"
+#include "ballistics.h"
 
 // Specialty angular conversion functions
 double DegtoMOA(double deg)

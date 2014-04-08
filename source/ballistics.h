@@ -27,9 +27,6 @@ see <http://www.gnu.org/licenses/>.
 #ifndef __lib_ballistics__
 #define __lib_ballistics__
 
-
-#define __BCOMP_MAXRANGE__ 50001
-#define GRAVITY (-32.194)
 #include <math.h>
 #include <stdlib.h>
 #include "_angle.h"// Angular conversion functions
@@ -39,7 +36,7 @@ see <http://www.gnu.org/licenses/>.
 #include "_zero.h" // Used to determine bore angle
 #include "_solve.h" // Used to solve ballistic problems 
 #include "_retrieve.h" // Used to make retrieving solution data easier.
-
+#include "_constants.h"
 
 #endif
 

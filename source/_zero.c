@@ -24,11 +24,10 @@ along with the GNU Ballistics Library. If not,
 see <http://www.gnu.org/licenses/>. 
 */
 
-#include "_zero.h"
+#include "ballistics.h"
 
 double ZeroAngle(int DragFunction, double DragCoefficient, double Vi, double SightHeight, double ZeroRange, double yIntercept)
 {
-
 	// Numerical Integration variables
 	double t=0;
 	double dt=1/Vi; // The solution accuracy generally doesn't suffer if its within a foot for each second of time.

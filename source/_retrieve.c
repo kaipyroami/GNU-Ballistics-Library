@@ -24,7 +24,7 @@ along with the GNU Ballistics Library. If not,
 see <http://www.gnu.org/licenses/>. 
 */
 
-#include "_retrieve.h"
+#include "ballistics.h"
 
 double GetRange(double* sln, int yardage)
 {

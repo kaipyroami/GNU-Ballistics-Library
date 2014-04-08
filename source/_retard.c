@@ -24,7 +24,7 @@ along with the GNU Ballistics Library. If not,
 see <http://www.gnu.org/licenses/>. 
 */
 
-#include "_retard.h"
+#include "ballistics.h"
 
 double retard(int DragFunction, double DragCoefficient, double Velocity)
 {

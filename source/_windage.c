@@ -24,7 +24,7 @@ along with the GNU Ballistics Library. If not,
 see <http://www.gnu.org/licenses/>. 
 */
 
-#include "_windage.h"
+#include "ballistics.h"
 
 double Windage(double WindSpeed, double Vi, double xx, double t)
 {

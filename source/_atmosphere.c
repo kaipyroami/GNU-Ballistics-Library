@@ -24,7 +24,7 @@ along with the GNU Ballistics Library. If not,
 see <http://www.gnu.org/licenses/>. 
 */
 
-#include "_atmosphere.h"
+#include "ballistics.h"
 
 double calcFR(double Temperature, double Pressure, double RelativeHumidity)
 {

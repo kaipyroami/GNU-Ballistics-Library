@@ -24,7 +24,7 @@ along with the GNU Ballistics Library. If not,
 see <http://www.gnu.org/licenses/>. 
 */
 
-#include "_solve.h"
+#include "ballistics.h"
 
 int SolveAll(int DragFunction, double DragCoefficient, double Vi, double SightHeight, \
 double ShootingAngle, double ZAngle, double WindSpeed, double WindAngle, double** Solution)
